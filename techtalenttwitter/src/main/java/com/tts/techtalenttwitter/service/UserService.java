@@ -1,5 +1,9 @@
 package com.tts.techtalenttwitter.service;
 
+import com.tts.techtalenttwitter.repository.RoleRepository;
+import com.tts.techtalenttwitter.repository.UserRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
