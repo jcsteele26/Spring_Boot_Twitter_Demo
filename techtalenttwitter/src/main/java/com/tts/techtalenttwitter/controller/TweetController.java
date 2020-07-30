@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import com.tts.techtalenttwitter.model.Tweet;
+import com.tts.techtalenttwitter.model.TweetDisplay;
 import com.tts.techtalenttwitter.model.User;
 import com.tts.techtalenttwitter.service.TweetService;
 import com.tts.techtalenttwitter.service.UserService;
@@ -28,7 +29,7 @@ public class TweetController {
     
     @GetMapping(value= {"/tweets", "/"})
     public String getFeed(Model model){
-        List<Tweet> tweets = tweetService.findAll();
+        List<TweetDisplay> tweets = tweetService.findAll();
         model.addAttribute("tweetList", tweets);
         return "feed";
     }
@@ -53,7 +54,7 @@ public class TweetController {
 
     @GetMapping(value = "/tweets/{tag}")
     public String getTweetsByTag(@PathVariable(value="tag") String tag, Model model) {
-        List<Tweet> tweets = tweetService.findAllWithTag(tag);
+        List<TweetDisplay> tweets = tweetService.findAllWithTag(tag);
         model.addAttribute("tweetList", tweets);
         model.addAttribute("tag", tag);
         return "taggedTweets";
